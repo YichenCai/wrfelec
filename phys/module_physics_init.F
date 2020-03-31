@@ -1,5 +1,4 @@
 !WRF:MODEL_LAYER:INITIALIZATION
-!Added on 3/31/2020
 !
 
 !  This MODULE holds the routines which are used to perform model start-up operations
