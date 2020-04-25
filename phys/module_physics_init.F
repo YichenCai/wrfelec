@@ -3754,7 +3754,7 @@ CALL lsm_mosaic_init(IVGTYP,config_flags%ISWATER,config_flags%ISURBAN,config_fla
    
    IF ( present( nssl_cccn ) ) THEN
      SELECT CASE(config_flags%mp_physics)
-     CASE (NSSL_2MOM,NSSL_2MOMCCN)
+     CASE (NSSL_2MOM,NSSL_2MOMCCN,MORR_TWO_MOMENT)
        IF ( config_flags%elec_physics > 0 ) THEN
          nssl_ipelec_tmp = Max(1,nssl_ipelec)
        ELSE
@@ -3836,7 +3836,7 @@ CALL lsm_mosaic_init(IVGTYP,config_flags%ISWATER,config_flags%ISURBAN,config_fla
                           ITS=its, ITE=ite, JTS=jts, JTE=jte, KTS=kts, KTE=kte)
 
      CASE (MORR_TWO_MOMENT)
-         CALL morr_two_moment_init( config_flags%hail_opt )
+         CALL morr_two_moment_init( config_flags%hail_opt, nssl_params )
      CASE (P3_1CATEGORY)
          CALL p3_init('./p3_lookup_table_1.dat','./p3_lookup_table_2.dat',1)
      CASE (P3_1CATEGORY_NC)
