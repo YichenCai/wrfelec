@@ -244,7 +244,7 @@ MODULE MODULE_MP_MORR_TWO_MOMENT
 CONTAINS
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-SUBROUTINE MORR_TWO_MOMENT_INIT(hail_opt) ! RAS
+SUBROUTINE MORR_TWO_MOMENT_INIT(hail_opt,nssl_params) ! RAS
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! THIS SUBROUTINE INITIALIZES ALL PHYSICAL CONSTANTS AMND PARAMETERS 
 ! NEEDED BY THE MICROPHYSICS SCHEME.
@@ -254,6 +254,7 @@ SUBROUTINE MORR_TWO_MOMENT_INIT(hail_opt) ! RAS
       IMPLICIT NONE
 
       INTEGER, INTENT(IN):: hail_opt ! RAS
+      REAL, DIMENSION(20) :: nssl_params ! for lightning
 
       integer n,i
 
@@ -267,7 +268,7 @@ SUBROUTINE MORR_TWO_MOMENT_INIT(hail_opt) ! RAS
 ! ALLOWING PREDICTION OF DROPLET CONCENTRATION
 ! THUS, THIS PARAMETER SHOULD NOT BE CHANGED HERE
 ! AND SHOULD BE LEFT TO 1
-
+      print *, "nssl_params: ", nssl_params
       INUM = 1
 
 ! SET CONSTANT DROPLET CONCENTRATION (UNITS OF CM-3)
